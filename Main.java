@@ -2,8 +2,6 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-
         System.out.println("\n -----    WELCOME TO THE SIMPLEST ADVENTURE GAME EVER    -----");
         System.out.println(" -----  Game ini hanya bisa dimainkan oleh 2 player saja   -----");
 
@@ -11,30 +9,12 @@ public class Main {
         Player dua = new Player();
 
         System.out.print("\n Masukkan nama player pertama : ");
-        satu.name = input.nextLine();
-        satu.run();
-        System.out.print("Berapa cepatkah player dapat berlari? (dalam km/h) ");
-        satu.speed = input.nextInt();
-        System.out.print("Berapa lama player bisa menghabisi lawan? (dalam menit) ");
-        satu.time = input.nextInt();
-        System.out.print("Berapa kekuatan yang dimiliki player? (dalam angka 1-100) ");
-        satu.healthPoint = input.nextInt();
-        satu.checkStrength();
-        satu.whatToPlay();
+        initialize(satu, "Berapa kekuatan yang dimiliki player? (dalam angka 1-100) ");
 
         System.out.println("\n ----- Sekarang giliran player kedua untuk bermain ----- \n");
 
         System.out.print("Masukkan nama player kedua : ");
-        dua.name = input.nextLine();
-        dua.run();
-        System.out.print("Berapa cepatkah player dapat berlari? (dalam km/h) ");
-        dua.speed = input.nextInt();
-        System.out.print("Berapa lama player bisa menghabisi lawan? (dalam menit) ");
-        dua.time = input.nextInt();
-        System.out.print("Berapa kekuatan yang dimiliki player? (dalam rasio 1-10) ");
-        dua.healthPoint = input.nextInt();
-        dua.checkStrength();
-        dua.whatToPlay();
+        initialize(dua, "Berapa kekuatan yang dimiliki player? (dalam rasio 1-10) ");
 
         System.out.println("\n PENGUMUMAN PEMENANG \n");
 
@@ -56,5 +36,19 @@ public class Main {
 
         System.out.println("\n ----- TERIMA KASIH TELAH BERMAIN DI PROGRAM INI -----");
         System.out.println(" -----              HAVE A NICE DAY!            -----");
+    }
+
+    private static void initialize(Player player, String s) {
+        Scanner input = new Scanner(System.in);
+        player.setName(input.nextLine());
+        player.run();
+        System.out.print("Berapa cepatkah player dapat berlari? (dalam km/h) ");
+        player.speed = input.nextInt();
+        System.out.print("Berapa lama player bisa menghabisi lawan? (dalam menit) ");
+        player.time = input.nextInt();
+        System.out.print(s);
+        player.healthPoint = input.nextInt();
+        player.checkStrength();
+        player.whatToPlay();
     }
 }

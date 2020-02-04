@@ -36,5 +36,9 @@ public class Player {
             healthPoint -= 10;
             System.out.println("Berhasil Berantem. Karena kesakitan, kekuatan berkurang 10 angka dan tersisa " + healthPoint + " kekuatan. Nanti kita lihat siapa yang terkuat.");
         }
-       }
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+}
